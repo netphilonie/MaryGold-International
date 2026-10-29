@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admissions | Marygold International School</title>
+  <link rel="icon" href="images/marygold-icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" href="pages.css">
+</head>
+<body>
+  <header id="site-header" class="site-header"></header>
+  <main>
+    <section class="page-title"><div class="wrap"><h1>Admissions</h1><p>How to join Marygold.</p></div></section>
+    <!-- DRAFT STEPS AND FEES NOTE: the school must confirm the real process before launch. -->
+    <section class="section"><div class="wrap">
+      <div class="prose"><h2>How it works</h2></div>
+      <ol class="steps">
+        <li><div><strong>Make an enquiry</strong><span>Send the form below or call the school office.</span></div></li>
+        <li><div><strong>Visit the school</strong><span>Meet the team and see the classrooms.</span></div></li>
+        <li><div><strong>Apply</strong><span>Complete the application, and an assessment if your child’s class needs one.</span></div></li>
+        <li><div><strong>Confirm your place</strong><span>Submit the documents and pay the fees to secure the place.</span></div></li>
+      </ol>
+      <div class="prose"><h2>Fees</h2><p>Fees depend on the class and on whether your child is a day pupil or a boarder. Please contact the school office for the current fee schedule.</p></div>
+      <div class="prose" style="margin-top:2rem"><h2>Send an enquiry</h2></div>
+      <form class="form" data-wa="Admission enquiry for Marygold International School">
+        <div class="two">
+          <div><label for="pn">Parent or guardian name</label><input id="pn" name="parent" data-label="Parent or guardian" required></div>
+          <div><label for="ph">Phone number</label><input id="ph" name="phone" type="tel" data-label="Phone" required></div>
+        </div>
+        <div><label for="cn">Child’s name</label><input id="cn" name="child" data-label="Child’s name" required></div>
+        <div class="two">
+          <div><label for="cl">Class applying for</label>
+            <select id="cl" name="level" data-label="Class" required><option value="">Choose one</option><option>Crèche</option><option>Primary</option><option>Secondary</option></select></div>
+          <div><label for="ty">Day or boarding</label>
+            <select id="ty" name="type" data-label="Day or boarding" required><option value="">Choose one</option><option>Day</option><option>Boarding</option></select></div>
+        </div>
+        <button class="btn btn-gold" type="submit">Send on WhatsApp</button>
+        <p class="note">This opens WhatsApp with your message ready to send to the school.</p>
+      </form>
+    </div></section>
+  </main>
+  <footer id="site-footer" class="site-footer"></footer>
+  <script src="script.js"></script>
+  <script src="pages.js"></script>
+</body>
+</html>
