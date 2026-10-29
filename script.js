@@ -3,9 +3,9 @@
 const SCHOOL = {
   name: 'Marygold International School',
   address: '58 Station Road, Elelenwo, Port Harcourt',
-  phone: '+234 000 000 0000',          // replace with the school number
-  whatsapp: '2340000000000',           // digits only, with country code
-  email: 'info@example.com'            // replace with the school email
+  phone: '+234 091 921 9314',          // replace with the school number
+  whatsapp: '2349019219614',           // digits only, with country code
+  email: 'oniphilebex@gmail.com'            // replace with the school email
 };
 
 const PAGES = [
