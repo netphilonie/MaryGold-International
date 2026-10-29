@@ -1,0 +1,35 @@
+/* Login pages: student, parent, staff. Same layout, different accent and photo. */
+.login{--accent:#F2A900;--on-accent:var(--navy);--bg1:#F2A900;--bg2:#E07B00;
+  min-height:calc(100vh - 72px);min-height:calc(100dvh - 72px);display:grid;place-items:center;padding:2.5rem 1rem;
+  background:
+    linear-gradient(rgba(12,29,56,.22),rgba(12,29,56,.22)),
+    var(--img,none) center/cover,
+    radial-gradient(circle at 18% 22%,rgba(255,255,255,.3),transparent 42%),
+    radial-gradient(circle at 82% 80%,rgba(255,255,255,.2),transparent 40%),
+    linear-gradient(135deg,var(--bg1),var(--bg2))}
+.login.parent{--accent:var(--green);--on-accent:#fff;--bg1:#2d7a50;--bg2:#12402a}
+.login.staff{--accent:var(--navy);--on-accent:#fff;--bg1:#2a4a7e;--bg2:#0c1d38}
+
+.login-card{width:min(430px,100%);padding:1.6rem 1.8rem 1.6rem;border-radius:22px;border-top:4px solid var(--accent);background:rgba(255,255,255,.7)}
+.login-card h1{font-size:1.9rem;margin-bottom:.3rem}
+.login-card .sub{color:#3f4a5f;font-size:.95rem}
+
+.roles{display:flex;gap:.3rem;padding:.3rem;border-radius:999px;background:rgba(18,41,77,.08);margin-bottom:1.5rem}
+.roles a{flex:1;text-align:center;padding:.5rem .4rem;border-radius:999px;font-size:.9rem;font-weight:600;color:var(--navy)}
+.roles a:hover{background:rgba(255,255,255,.6)}
+.roles a[aria-current=page]{background:var(--accent);color:var(--on-accent)}
+
+.login-card label{display:block;font-size:.88rem;font-weight:600;color:var(--navy);margin:1.1rem 0 .35rem}
+.login-card input{width:100%;padding:.8rem .95rem;border-radius:12px;border:1px solid rgba(18,41,77,.22);background:rgba(255,255,255,.8);font:inherit;color:var(--ink)}
+.login-card input:focus{border-color:var(--accent)}
+.pw{position:relative}
+.pw input{padding-right:4.6rem}
+.show{position:absolute;right:.4rem;top:50%;transform:translateY(-50%);border:0;background:none;color:var(--navy);font:600 .85rem var(--sans);padding:.5rem .6rem;cursor:pointer;border-radius:8px}
+.row{text-align:right;margin:.6rem 0 1.2rem;font-size:.88rem}
+.row a,.alt a{color:var(--navy);text-decoration:underline}
+.login-btn{width:100%;background:var(--accent);color:var(--on-accent);padding:.85rem}
+.login-btn:hover{filter:brightness(1.1)}
+.msg{margin-top:.9rem;font-size:.9rem;color:var(--navy);min-height:1.3em}
+.alt{margin-top:.8rem;font-size:.88rem;color:#3f4a5f;text-align:center}
+.alt a{font-weight:600}
+@media (max-width:480px){.login-card{padding:1.4rem 1.2rem}}

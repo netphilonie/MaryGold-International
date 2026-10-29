@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Parent login | Marygold International School</title>
+  <link rel="icon" href="images/marygold-icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <header id="site-header" class="site-header"></header>
+
+  <main class="login parent" style="--img:url(images/login-parent.jpg)">
+    <div class="login-card glass">
+      <nav class="roles" aria-label="Choose your login">
+        <a href="student-login.html">Student</a>
+        <a href="parent-login.html" aria-current="page">Parent</a>
+        <a href="staff-login.html">Staff</a>
+      </nav>
+      <h1>Parent login</h1>
+      <p class="sub">Sign in to follow your child’s progress.</p>
+
+      <form id="login-form" novalidate>
+        <label for="user">Username</label>
+        <input id="user" name="user" type="text" autocomplete="username" required>
+        <label for="pass">Password</label>
+        <div class="pw">
+          <input id="pass" name="pass" type="password" autocomplete="current-password" required>
+          <button class="show" type="button" aria-pressed="false">Show</button>
+        </div>
+        <div class="row"><a href="#">Forgot password?</a></div>
+        <button class="btn login-btn" type="submit">Log in</button>
+        <p class="msg" id="msg" role="status"></p>
+      </form>
+      <p class="alt">Child enrolled? <a href="#">Create your parent account</a></p>
+    </div>
+  </main>
+
+  <footer id="site-footer" class="site-footer"></footer>
+  <script src="script.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>
