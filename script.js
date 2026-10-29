@@ -3,9 +3,9 @@
 const SCHOOL = {
   name: 'Marygold International School',
   address: '58 Station Road, Elelenwo, Port Harcourt',
-  phone: '+234 091 921 9314',          // replace with the school number
-  whatsapp: '2349019219614',           // digits only, with country code
-  email: 'oniphilebex@gmail.com'            // replace with the school email
+  phone: '+234 000 000 0000',          // replace with the school number
+  whatsapp: '2340000000000',           // digits only, with country code
+  email: 'info@example.com'            // replace with the school email
 };
 
 const PAGES = [
@@ -87,3 +87,11 @@ if (ddBtn) ddBtn.addEventListener('click', e => {
 });
 document.addEventListener('click', e => { if (!e.target.closest('.dd-panel')) closeAll(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
+
+// Form feedback: type is 'loading', 'success', 'error' or 'info'.
+function showStatus(el, type, html) {
+  if (!el) return;
+  const icons = { loading: '', success: '&#10003;', error: '!', info: 'i' };
+  el.className = 'status show ' + type;
+  el.innerHTML = `<span class="ic" aria-hidden="true">${icons[type]}</span><span>${html}</span>`;
+}

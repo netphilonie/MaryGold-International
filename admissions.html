@@ -23,7 +23,7 @@
       </ol>
       <div class="prose"><h2>Fees</h2><p>Fees depend on the class and on whether your child is a day pupil or a boarder. Please contact the school office for the current fee schedule.</p></div>
       <div class="prose" style="margin-top:2rem"><h2>Send an enquiry</h2></div>
-      <form class="form" data-wa="Admission enquiry for Marygold International School">
+      <form class="form" data-kind="enquiry" novalidate data-wa="Admission enquiry for Marygold International School">
         <div class="two">
           <div><label for="pn">Parent or guardian name</label><input id="pn" name="parent" data-label="Parent or guardian" required></div>
           <div><label for="ph">Phone number</label><input id="ph" name="phone" type="tel" data-label="Phone" required></div>
@@ -37,6 +37,7 @@
         </div>
         <button class="btn btn-gold" type="submit">Send on WhatsApp</button>
         <p class="note">This opens WhatsApp with your message ready to send to the school.</p>
+        <div class="status" role="status" aria-live="polite"></div>
       </form>
     </div></section>
   </main>

@@ -46,7 +46,7 @@ h1,h2,h3{font-family:var(--serif);color:var(--navy);line-height:1.15}
 
 /* Hero */
 .hero{color:#fff;min-height:78vh;display:flex;align-items:center;padding:4rem 0;
-  background:linear-gradient(100deg,rgba(12,29,56,.93) 28%,rgba(12,29,56,.45)),url(images/hero.png) center/cover,linear-gradient(135deg,var(--navy),var(--green))}
+  background:linear-gradient(100deg,rgba(12,29,56,.93) 28%,rgba(12,29,56,.45)),url(images/hero.jpg) center/cover,linear-gradient(135deg,var(--navy),var(--green))}
 .hero h1{color:#fff;font-size:clamp(2.3rem,5.5vw,4rem);max-width:15ch}
 .hero p{max-width:50ch;margin:1.2rem 0 2rem;font-size:1.1rem;color:#e8edf6}
 .hero-actions{display:flex;flex-wrap:wrap;gap:.8rem}
@@ -113,3 +113,21 @@ h1,h2,h3{font-family:var(--serif);color:var(--navy);line-height:1.15}
   .hero{min-height:70vh}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* Form feedback messages */
+.status{display:none;align-items:flex-start;gap:.7rem;margin-top:.9rem;padding:.8rem 1rem;border-radius:12px;font-size:.92rem;line-height:1.45;border:1px solid transparent;text-align:left}
+.status.show{display:flex}
+.status .ic{flex:none;width:1.3rem;height:1.3rem;display:grid;place-items:center;border-radius:50%;font-size:.78rem;font-weight:700;margin-top:.1rem}
+.status a{text-decoration:underline;font-weight:600}
+.status.loading{background:#eef2fa;border-color:#cdd8ec;color:var(--navy)}
+.status.loading .ic{border:2.5px solid #b7c5e0;border-top-color:var(--navy);animation:spin .8s linear infinite}
+.status.success{background:#e8f4ec;border-color:#bcdcc6;color:#16472c}
+.status.success .ic{background:var(--green);color:#fff}
+.status.error{background:#fdecea;border-color:#f3c3be;color:#7a1f16}
+.status.error .ic{background:#b3261e;color:#fff}
+.status.info{background:#fff6dc;border-color:#f0dc9a;color:#5a4300}
+.status.info .ic{background:var(--gold);color:var(--navy)}
+[aria-invalid=true]{border-color:#b3261e!important}
+button:disabled{opacity:.7;cursor:wait}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.status.loading .ic{animation:none}}
