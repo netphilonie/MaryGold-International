@@ -3,7 +3,7 @@
 // Optional: cover.jpg for the tile, and small copies in a thumbs/ folder for faster loading.
 // Then set "count" below to the number of photos in that album.
 const ALBUMS = [
-  { id: 'interhouse-sports', title: 'Interhouse Sports', count: 4 },
+  { id: 'interhouse-sports', title: 'Interhouse Sports', count: 5 },
   { id: 'graduation',        title: 'Graduation',        count: 4 },
   { id: 'prom',              title: 'Prom',              count: 4 },
   { id: 'cultural-day',      title: 'Cultural Day',      count: 4 },
