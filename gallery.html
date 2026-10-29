@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery | Marygold International School</title>
+  <link rel="icon" href="images/marygold-icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+  <header id="site-header" class="site-header"></header>
+
+  <main>
+    <section class="page-title">
+      <div class="wrap">
+        <h1>Gallery</h1>
+        <p>Tap an album to open it.</p>
+      </div>
+    </section>
+    <div class="wrap"><div class="albums" id="albums"></div></div>
+  </main>
+
+  <footer id="site-footer" class="site-footer"></footer>
+
+  <!-- Layer 2: album panel -->
+  <div class="overlay" id="overlay" hidden>
+    <section class="panel glass" id="panel" role="dialog" aria-modal="true" aria-labelledby="p-title">
+      <div class="p-head">
+        <div><h2 id="p-title"></h2><p id="p-meta"></p></div>
+        <button class="x" id="p-close" type="button" aria-label="Close album">&times;</button>
+      </div>
+      <div class="p-body" id="p-body"></div>
+    </section>
+  </div>
+
+  <!-- Layer 3: single photo -->
+  <div class="lightbox" id="lb" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button class="x lb-x" id="lb-close" type="button" aria-label="Close photo">&times;</button>
+    <button class="lb-nav prev" id="lb-prev" type="button" aria-label="Previous photo">&#8249;</button>
+    <figure>
+      <img id="lb-img" alt="">
+      <div id="lb-missing" hidden>Photo coming soon</div>
+      <figcaption id="lb-cap"></figcaption>
+    </figure>
+    <button class="lb-nav next" id="lb-next" type="button" aria-label="Next photo">&#8250;</button>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="gallery.js"></script>
+</body>
+</html>
