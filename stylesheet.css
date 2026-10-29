@@ -46,7 +46,7 @@ h1,h2,h3{font-family:var(--serif);color:var(--navy);line-height:1.15}
 
 /* Hero */
 .hero{color:#fff;min-height:78vh;display:flex;align-items:center;padding:4rem 0;
-  background:linear-gradient(100deg,rgba(12,29,56,.93) 28%,rgba(12,29,56,.45)),url(images/hero.jpg) center/cover,linear-gradient(135deg,var(--navy),var(--green))}
+  background:linear-gradient(100deg,rgba(12,29,56,.93) 28%,rgba(12,29,56,.45)),url(images/hero.png) center/cover,linear-gradient(135deg,var(--navy),var(--green))}
 .hero h1{color:#fff;font-size:clamp(2.3rem,5.5vw,4rem);max-width:15ch}
 .hero p{max-width:50ch;margin:1.2rem 0 2rem;font-size:1.1rem;color:#e8edf6}
 .hero-actions{display:flex;flex-wrap:wrap;gap:.8rem}
