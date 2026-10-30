@@ -1,7 +1,7 @@
 // Login pages: drop down status bar, shake, and lockout countdown.
 // The real login needs a backend (phase 2). When the server exists, set API_URL below.
 const API_URL = '';   // later, for example: 'https://your-server.com/api/login'
-const DEMO = false;   // true = fake server on YOUR laptop to test the bar, shake and lockout. Keep false when live.
+const DEMO = true;   // true = fake server on YOUR laptop to test the bar, shake and lockout. Keep false when live.
 
 const role = document.querySelector('main.login').classList[1];   // student, parent or staff
 const form = document.getElementById('login-form');
