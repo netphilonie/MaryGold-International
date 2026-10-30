@@ -14,10 +14,6 @@
 .login-card h1{font-size:1.9rem;margin-bottom:.3rem}
 .login-card .sub{color:#3f4a5f;font-size:.95rem}
 
-.roles{display:flex;gap:.3rem;padding:.3rem;border-radius:999px;background:rgba(18,41,77,.08);margin-bottom:1.5rem}
-.roles a{flex:1;text-align:center;padding:.5rem .4rem;border-radius:999px;font-size:.9rem;font-weight:600;color:var(--navy)}
-.roles a:hover{background:rgba(255,255,255,.6)}
-.roles a[aria-current=page]{background:var(--accent);color:var(--on-accent)}
 
 .login-card label{display:block;font-size:.88rem;font-weight:600;color:var(--navy);margin:1.1rem 0 .35rem}
 .login-card input{width:100%;padding:.8rem .95rem;border-radius:12px;border:1px solid rgba(18,41,77,.22);background:rgba(255,255,255,.8);font:inherit;color:var(--ink)}
@@ -33,3 +29,29 @@
 .alt{margin-top:.8rem;font-size:.88rem;color:#3f4a5f;text-align:center}
 .alt a{font-weight:600}
 @media (max-width:480px){.login-card{padding:1.4rem 1.2rem}}
+
+/* Role tabs (restored) */
+.roles{display:flex;gap:.3rem;padding:.3rem;border-radius:999px;background:rgba(18,41,77,.08);margin-bottom:1.5rem}
+.roles a{flex:1;text-align:center;padding:.5rem .4rem;border-radius:999px;font-size:.9rem;font-weight:600;color:var(--navy)}
+.roles a:hover{background:rgba(255,255,255,.6)}
+.roles a[aria-current=page]{background:var(--accent);color:var(--on-accent)}
+
+/* Status bar: drops down from under the header and lands over the tabs */
+.drop-bar{position:fixed;z-index:45;display:flex;align-items:flex-start;gap:.7rem;padding:.85rem 1rem;border-radius:12px;border:1px solid transparent;font-size:.92rem;line-height:1.45;box-shadow:0 10px 30px rgba(12,29,56,.25)}
+.drop-bar[hidden]{display:none}
+.drop-bar .ic{flex:none;width:1.3rem;height:1.3rem;display:grid;place-items:center;border-radius:50%;font-size:.78rem;font-weight:700;margin-top:.1rem}
+.drop-bar.loading{background:#eef2fa;border-color:#cdd8ec;color:var(--navy)}
+.drop-bar.loading .ic{border:2.5px solid #b7c5e0;border-top-color:var(--navy);animation:spin .8s linear infinite}
+.drop-bar.success{background:#e8f4ec;border-color:#bcdcc6;color:#16472c}
+.drop-bar.success .ic{background:var(--green);color:#fff}
+.drop-bar.error{background:#fdecea;border-color:#f3c3be;color:#7a1f16}
+.drop-bar.error .ic{background:#b3261e;color:#fff}
+.drop-bar.warn{background:#fff0dc;border-color:#f0c88f;color:#6b3a00}
+.drop-bar.warn .ic{background:var(--orange);color:#fff}
+.drop-bar.info{background:#fff6dc;border-color:#f0dc9a;color:#5a4300}
+.drop-bar.info .ic{background:var(--gold);color:var(--navy)}
+
+/* Shake when the server rejects the details */
+@keyframes cardShake{10%,90%{transform:translateX(-2px)}20%,80%{transform:translateX(4px)}30%,50%,70%{transform:translateX(-7px)}40%,60%{transform:translateX(7px)}}
+.login-card.is-shaking{animation:cardShake .5s cubic-bezier(.36,.07,.19,.97)}
+@media (prefers-reduced-motion:reduce){.login-card.is-shaking,.drop-bar.loading .ic{animation:none}}
