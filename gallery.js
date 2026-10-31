@@ -3,16 +3,16 @@
 // Optional: cover.jpg for the tile, and small copies in a thumbs/ folder for faster loading.
 // Then set "count" below to the number of photos in that album.
 const ALBUMS = [
-  { id: 'interhouse-sports', title: 'Interhouse Sports', count: 5 },
-  { id: 'graduation',        title: 'Graduation',        count: 4 },
-  { id: 'prom',              title: 'Prom',              count: 4 },
-  { id: 'cultural-day',      title: 'Cultural Day',      count: 4 },
-  { id: 'prize-giving-day',  title: 'Prize Giving Day',  count: 4 },
-  { id: 'independence-day',  title: 'Independence Day',  count: 4 },
-  { id: 'science-fair',      title: 'Science Fair',      count: 4 },
-  { id: 'christmas-carol',   title: 'Christmas Carol',   count: 4 },
-  { id: 'excursions',        title: 'Excursions',        count: 4 },
-  { id: 'boarders-night',    title: 'Boarders’ Night',   count: 4 }
+  { id: 'interhouse-sports', title: 'Interhouse Sports', count: 9 },
+  { id: 'graduation',        title: 'Graduation',        count: 13 },
+  { id: 'prom',              title: 'Prom',              count: 9 },
+  { id: 'cultural-day',      title: 'Cultural Day',      count: 15 },
+  { id: 'prize-giving-day',  title: 'Prize Giving Day',  count: 9 },
+  { id: 'independence-day',  title: 'Independence Day',  count: 7 },
+  { id: 'science-fair',      title: 'Science Fair',      count: 5 },
+  { id: 'christmas-carol',   title: 'Christmas Carol',   count: 9 },
+  { id: 'excursions',        title: 'Excursions',        count: 11 },
+  { id: 'boarders-night',    title: 'Boarders’ Night',   count: 9 }
 ];
 const PAIRS = [['#12294D','#1F5C3A'],['#E07B00','#F2A900'],['#1F5C3A','#12294D'],['#12294D','#E07B00'],['#F2A900','#1F5C3A']];
 
