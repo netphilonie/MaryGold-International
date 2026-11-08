@@ -30,7 +30,7 @@
 .alt a{font-weight:600}
 @media (max-width:480px){.login-card{padding:1.4rem 1.2rem}}
 
-/* Role tabs (restored) */
+/* Role tabs */
 .roles{display:flex;gap:.3rem;padding:.3rem;border-radius:999px;background:rgba(18,41,77,.08);margin-bottom:1.5rem}
 .roles a{flex:1;text-align:center;padding:.5rem .4rem;border-radius:999px;font-size:.9rem;font-weight:600;color:var(--navy)}
 .roles a:hover{background:rgba(255,255,255,.6)}
