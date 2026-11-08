@@ -1,7 +1,7 @@
 // Login pages: drop down status bar, shake, and lockout countdown.
 // The real login needs a backend (phase 2). When the server exists, set API_URL below.
 const API_URL = '';   // later, for example: 'https://your-server.com/api/login'
-const DEMO = true;   // true = fake server on YOUR laptop to test the bar, shake and lockout. Keep false when live.
+const DEMO = false;   // true = fake server on YOUR laptop to test the bar, shake and lockout. Keep false when live.
 
 const role = document.querySelector('main.login').classList[1];   // student, parent or staff
 const form = document.getElementById('login-form');
@@ -12,6 +12,8 @@ const btn = form.querySelector('[type=submit]');
 const idle = btn.textContent;
 const siteHeader = document.getElementById('site-header');
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const mobile = matchMedia('(max-width: 600px)');
+const vv = window.visualViewport;                // the part of the screen the user can actually see
 const LOCK_KEY = 'mg-lock-' + role;
 const wait = ms => new Promise(r => setTimeout(r, ms));
 const fmt = s => String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0');
@@ -25,32 +27,40 @@ show.addEventListener('click', () => {
 });
 form.addEventListener('input', e => e.target.removeAttribute('aria-invalid'));
 
-/* Status bar: drops from under the header, lands over the tabs, lifts after 4.5 seconds */
+/* Status bar. Laptop: drops from under the header and lands over the tabs.
+   Phone: drops from the top of the VISIBLE screen, so the keyboard cannot hide it. */
 const bar = document.createElement('div');
 bar.className = 'drop-bar'; bar.hidden = true;
 bar.setAttribute('role', 'status'); bar.setAttribute('aria-live', 'polite');
 document.body.appendChild(bar);
 const ICONS = { loading: '', success: '&#10003;', error: '!', warn: '!', info: 'i' };
-let hideTimer = null, anim = null, visible = false;
+let hideTimer = null, anim = null, visible = false, origin = 0;   // origin = where the bar slides in from
 
-function place() {                       // returns the bottom edge of the header
-  const tabs = document.querySelector('.roles').getBoundingClientRect();
-  const hb = siteHeader.getBoundingClientRect().bottom;
-  bar.style.left = tabs.left + 'px';
-  bar.style.width = tabs.width + 'px';
-  bar.style.top = Math.max(tabs.top, hb + 8) + 'px';
-  return hb;
+function place() {
+  if (mobile.matches) {
+    const top = (vv ? vv.offsetTop : 0) + 8;
+    bar.style.top = top + 'px';
+    bar.style.left = (vv ? vv.offsetLeft : 0) + 12 + 'px';
+    bar.style.width = (vv ? vv.width : innerWidth) - 24 + 'px';
+    origin = top - 8;
+  } else {
+    const tabs = document.querySelector('.roles').getBoundingClientRect();
+    origin = siteHeader.getBoundingClientRect().bottom;
+    bar.style.left = tabs.left + 'px';
+    bar.style.width = tabs.width + 'px';
+    bar.style.top = Math.max(tabs.top, origin + 8) + 'px';
+  }
 }
 function drop(type, html, ms = 4500) {   // ms = 0 keeps the bar until the next message
   clearTimeout(hideTimer);
   if (anim) { anim.cancel(); anim = null; }
   bar.className = 'drop-bar ' + type;
   bar.innerHTML = `<span class="ic" aria-hidden="true">${ICONS[type]}</span><span>${html}</span>`;
-  const hb = place();
+  place();
   if (!visible) {
     visible = true; bar.hidden = false;
     if (!reduce) {
-      const from = hb - parseFloat(bar.style.top) - bar.offsetHeight;
+      const from = origin - parseFloat(bar.style.top) - bar.offsetHeight;
       anim = bar.animate([{ transform: `translateY(${from}px)`, opacity: .4 }, { transform: 'none', opacity: 1 }],
                          { duration: 380, easing: 'cubic-bezier(.2,.8,.2,1)' });
     }
@@ -60,11 +70,13 @@ function drop(type, html, ms = 4500) {   // ms = 0 keeps the bar until the next 
 function lift() {
   const done = () => { bar.hidden = true; visible = false; anim = null; };
   if (reduce) return done();
-  const to = siteHeader.getBoundingClientRect().bottom - parseFloat(bar.style.top) - bar.offsetHeight;
+  const to = origin - parseFloat(bar.style.top) - bar.offsetHeight;
   anim = bar.animate([{ transform: 'none', opacity: 1 }, { transform: `translateY(${to}px)`, opacity: .4 }],
                      { duration: 300, easing: 'ease-in' });
   anim.onfinish = done;
 }
+// Keep the bar glued to the visible area when the keyboard opens or the page scrolls
+if (vv) ['resize', 'scroll'].forEach(ev => vv.addEventListener(ev, () => { if (visible && mobile.matches) place(); }));
 
 /* Shake the card */
 function shakeCard() {

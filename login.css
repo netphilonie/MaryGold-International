@@ -30,13 +30,13 @@
 .alt a{font-weight:600}
 @media (max-width:480px){.login-card{padding:1.4rem 1.2rem}}
 
-/* Role tabs */
+/* Role tabs (restored) */
 .roles{display:flex;gap:.3rem;padding:.3rem;border-radius:999px;background:rgba(18,41,77,.08);margin-bottom:1.5rem}
 .roles a{flex:1;text-align:center;padding:.5rem .4rem;border-radius:999px;font-size:.9rem;font-weight:600;color:var(--navy)}
 .roles a:hover{background:rgba(255,255,255,.6)}
 .roles a[aria-current=page]{background:var(--accent);color:var(--on-accent)}
 
-/* Status bar: drops down from under the header and lands over the tabs */
+/* Status bar: drops from under the header on laptops, from the top of the visible screen on phones */
 .drop-bar{position:fixed;z-index:45;display:flex;align-items:flex-start;gap:.7rem;padding:.85rem 1rem;border-radius:12px;border:1px solid transparent;font-size:.92rem;line-height:1.45;box-shadow:0 10px 30px rgba(12,29,56,.25)}
 .drop-bar[hidden]{display:none}
 .drop-bar .ic{flex:none;width:1.3rem;height:1.3rem;display:grid;place-items:center;border-radius:50%;font-size:.78rem;font-weight:700;margin-top:.1rem}
@@ -50,6 +50,7 @@
 .drop-bar.warn .ic{background:var(--orange);color:#fff}
 .drop-bar.info{background:#fff6dc;border-color:#f0dc9a;color:#5a4300}
 .drop-bar.info .ic{background:var(--gold);color:var(--navy)}
+@media (max-width:600px){.drop-bar{z-index:70}}   /* above the sticky header on phones */
 
 /* Shake when the server rejects the details */
 @keyframes cardShake{10%,90%{transform:translateX(-2px)}20%,80%{transform:translateX(4px)}30%,50%,70%{transform:translateX(-7px)}40%,60%{transform:translateX(7px)}}
